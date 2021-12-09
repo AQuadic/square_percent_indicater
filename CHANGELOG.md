@@ -26,3 +26,10 @@ home page fixed
 
 ## [0.1.0] - 2021-08-05
 null Safety
+
+## [0.1.1] - 2021-12-09
+added more angles
+- topCenter
+- centerRight
+- centerLeft
+- bottomCenter
