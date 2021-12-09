@@ -18,6 +18,11 @@ code refactor
 methods improvement
 bug fixes
 
-
 ## [0.0.7] - 2021-01-12
 readme fixed
+
+## [0.0.8] - 2021-01-13
+home page fixed
+
+## [0.1.0] - 2021-08-05
+null Safety

@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SquarePercentIndicator(
           width: 140,
           height: 140,
-          startAngle: StartAngle.bottomRight,
+          // startAngle: StartAngle.bottomRight,
           reverse: true,
           borderRadius: 12,
           shadowWidth: 1.5,
@@ -65,3 +65,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

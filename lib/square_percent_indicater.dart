@@ -20,7 +20,7 @@ class SquarePercentIndicator extends StatelessWidget {
   ///thickness of the progress
   final double progressWidth;
   final double shadowWidth;
-  final Widget child;
+  final Widget? child;
 
   ///if true the progress is moving clockwise
   final bool reverse;
@@ -28,7 +28,7 @@ class SquarePercentIndicator extends StatelessWidget {
   final StartAngle startAngle;
 
   const SquarePercentIndicator(
-      {Key key,
+      {
       this.progress = 0.0,
       this.reverse = false,
       this.borderRadius = 5,
@@ -37,10 +37,9 @@ class SquarePercentIndicator extends StatelessWidget {
       this.progressWidth = 5,
       this.shadowWidth = 5,
       this.child,
-      this.startAngle,
+      this.startAngle=StartAngle.topLeft,
       this.width = 150,
-      this.height = 150})
-      : super(key: key);
+      this.height = 150});
 
   @override
   Widget build(BuildContext context) {
@@ -78,14 +77,14 @@ class RadialPainter extends CustomPainter {
   final StartAngle startAngle;
 
   RadialPainter({
-    this.progress,
-    this.color,
-    this.shadowColor,
-    this.strokeWidth,
-    this.shadowWidth,
-    this.reverse,
-    this.strokeCap,
-    this.paintingStyle,
+    required this.progress,
+    this.color=Colors.blue,
+    this.shadowColor=Colors.grey,
+    this.strokeWidth=4,
+    this.shadowWidth=1,
+    this.reverse=false,
+    required this.strokeCap,
+    required this.paintingStyle,
     this.startAngle = StartAngle.topLeft,
     this.borderRadius = 10,
   });
