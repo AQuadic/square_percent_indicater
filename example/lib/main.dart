@@ -23,7 +23,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int value = 0;
-  Timer timer;
+  late Timer timer;
   @override
   void initState() {
     super.initState();
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
-    timer?.cancel();
+    timer.cancel();
     super.dispose();
   }
 

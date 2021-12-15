@@ -1,6 +1,6 @@
 name: square_percent_indicater
 description: Flutter package showing progress percent value in square , square shape percent indicator is used commonly in designs
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/AQuadic/square_percent_indicater
 
 environment:

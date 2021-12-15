@@ -33,3 +33,6 @@ added more angles
 - centerRight
 - centerLeft
 - bottomCenter
+
+## [0.1.2] - 2021-12-15
+shiftProgress

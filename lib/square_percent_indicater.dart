@@ -2,6 +2,7 @@ library square_percent_indicater;
 
 import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,6 +12,7 @@ class SquarePercentIndicator extends StatelessWidget {
   final double width;
   final double height;
   final double progress;
+  final double shiftProgress;
 
   ///square border radius
   final double borderRadius;
@@ -28,8 +30,8 @@ class SquarePercentIndicator extends StatelessWidget {
   final StartAngle startAngle;
 
   const SquarePercentIndicator(
-      {
-      this.progress = 0.0,
+      {this.progress = 0.0,
+      this.shiftProgress = 0.0,
       this.reverse = false,
       this.borderRadius = 5,
       this.progressColor = Colors.blue,
@@ -37,7 +39,7 @@ class SquarePercentIndicator extends StatelessWidget {
       this.progressWidth = 5,
       this.shadowWidth = 5,
       this.child,
-      this.startAngle=StartAngle.topLeft,
+      this.startAngle = StartAngle.topLeft,
       this.width = 150,
       this.height = 150});
 
@@ -51,6 +53,7 @@ class SquarePercentIndicator extends StatelessWidget {
         painter: RadialPainter(
             startAngle: startAngle,
             progress: progress,
+            shiftProgress: shiftProgress,
             color: progressColor,
             shadowColor: shadowColor,
             reverse: reverse,
@@ -66,6 +69,7 @@ class SquarePercentIndicator extends StatelessWidget {
 
 class RadialPainter extends CustomPainter {
   final double progress;
+  final double shiftProgress;
   final Color color;
   final Color shadowColor;
   final StrokeCap strokeCap;
@@ -78,11 +82,12 @@ class RadialPainter extends CustomPainter {
 
   RadialPainter({
     required this.progress,
-    this.color=Colors.blue,
-    this.shadowColor=Colors.grey,
-    this.strokeWidth=4,
-    this.shadowWidth=1,
-    this.reverse=false,
+    this.shiftProgress = 0.0,
+    this.color = Colors.blue,
+    this.shadowColor = Colors.grey,
+    this.strokeWidth = 4,
+    this.shadowWidth = 1,
+    this.reverse = false,
     required this.strokeCap,
     required this.paintingStyle,
     this.startAngle = StartAngle.topLeft,
@@ -106,7 +111,7 @@ class RadialPainter extends CustomPainter {
     var path = Path();
     Path dashPath = Path();
 
-    path.moveTo(borderRadius, 0);
+    path.moveTo(borderRadius + shiftProgress, 0);
     path.lineTo(size.width - borderRadius, 0);
     path.arcTo(
         Rect.fromCircle(
@@ -139,6 +144,8 @@ class RadialPainter extends CustomPainter {
         pi,
         pi / 2,
         false);
+
+    path.lineTo(shiftProgress - borderRadius, 0);
 
     for (PathMetric pathMetric in path.computeMetrics()) {
       dashPath.addPath(
